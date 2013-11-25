@@ -1,28 +1,19 @@
-== README
+== Word Square
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Word Square
 
-Things you may want to cover:
+Your task is to write a Ruby program that generates word squares.
 
-* Ruby version
+A word square is a collection of letters that form valid words when read from left to right, and also from top to bottom.
 
-* System dependencies
+Your program should take an integer n, and search for word squares of size n x n. It should print the square it finds.
 
-* Configuration
+You may work on this challenge by yourself or as part of a pair.
 
-* Database creation
+When you are done, create a public repo (or gist, if you prefer) and leave a link to it in this thread. Then, please review at least one other person's submission and leave them feedback on their code.
 
-* Database initialization
+Extra Credit
 
-* How to run the test suite
+Find a 6x6 word square as quickly as possible. Post your best time.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Post any questions in this thread.
