@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-WordSquare::Application.load_tasks
+Words::Application.load_tasks

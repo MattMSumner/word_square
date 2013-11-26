@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-WordSquare::Application.config.secret_key_base = 'b1dc3ebcc8f98b15197272642bbb988dd425abb3fba5945c495ea2149ebb73ee7084fdabf58095cccc9debbfd0c4aaee76cd0c03df67239e2995c8e8a3868bf1'
+Words::Application.config.secret_key_base = 'b1dc3ebcc8f98b15197272642bbb988dd425abb3fba5945c495ea2149ebb73ee7084fdabf58095cccc9debbfd0c4aaee76cd0c03df67239e2995c8e8a3868bf1'
