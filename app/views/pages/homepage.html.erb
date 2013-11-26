@@ -1,2 +1,7 @@
 <p data-role='description'></p>
 
+<%= form_for :word_square, url: word_squares_path do |f| %>
+  <%= f.label :dimension %>
+  <%= f.text_field :dimension %>
+  <%= f.submit 'submit' %>
+<% end %>
