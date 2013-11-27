@@ -29,4 +29,14 @@ describe WordSquare do
     @word_square = WordSquare.new(dimension: 2, dictionary: ["no"])
     expect(@word_square.find).to eq []
   end
+
+  it 'finds a 4x4 word square with the rows of words being the same as the columns' do
+    @dictionary = Dictionary.new("english").words_with_length(4)
+    @word_square = WordSquare.new(dimension: 4, dictionary: @dictionary)
+    @word_square.find.each_with_index do |word, word_index|
+      word.each_with_index do |letter, letter_index|
+        expect(letter).to eq @word_square.find[letter_index][word_index]
+      end
+    end
+  end
 end
