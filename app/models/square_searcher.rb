@@ -42,13 +42,13 @@ class SquareSearcher
   end
 
   def available_words
-    pool = @lexicon
+    pool = @lexicon.clone
     @words.each_with_index do |word, index|
-      pool.delete_if { |word_from_pool| word[index + 1] == word_from_pool[index + 1] }
+      pool.delete_if { |word_from_pool| word_from_pool[index] != word[@words.length] }
     end
 
     if @tried[@words.length + 1]
-      pool -= @tried[@words.length + 1]
+      pool = pool - @tried[@words.length + 1]
     end
 
     pool
