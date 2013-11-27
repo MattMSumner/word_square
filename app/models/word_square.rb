@@ -10,11 +10,7 @@ class WordSquare
   alias_method :to_param, :dimension
 
   def find
-    @_find ||= if @dictionary.empty?
-      []
-    else
-      find_square
-    end
+    @_find ||= find_square
   end
 
   private
@@ -26,10 +22,10 @@ class WordSquare
   end
 
   def find_square
-    dimension.times.map do |x|
-      word = @dictionary.sample
-      dimension.times.map do |y|
-        word[y]
+    square_searcher = SquareSearcher.new(@dimension.to_i, @dictionary)
+    square_searcher.words.map do |word|
+      word.split.map do |letter|
+        letter
       end
     end
   end

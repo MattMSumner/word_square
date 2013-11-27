@@ -5,7 +5,7 @@ class Dictionary
   end
 
   def words_with_length(integer)
-    @lexicon.select { |word| word.length == integer }
+    @lexicon.select { |word| word.length == integer.to_i }
   end
 
   private

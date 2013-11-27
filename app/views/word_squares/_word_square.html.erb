@@ -1,5 +1,13 @@
 <% if word_square.find.empty? %>
   No word square
 <% else %>
-  <%= word_square.find %>
+  <table>
+    <% word_square.find.each do |line| %>
+      <tr>
+        <% line.each do |letter| %>
+          <td><%= letter %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
 <% end %>

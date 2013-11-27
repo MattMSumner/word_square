@@ -24,4 +24,9 @@ describe WordSquare do
     @word_square = WordSquare.new(dimension: 1, dictionary: ["a"])
     expect(@word_square.find).to eq [["a"]]
   end
+
+  it 'finds should not find a word square if there is not a valid one' do
+    @word_square = WordSquare.new(dimension: 2, dictionary: ["no"])
+    expect(@word_square.find).to eq []
+  end
 end
