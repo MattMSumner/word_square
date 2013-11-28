@@ -5,6 +5,10 @@ class SquareSearcher
   def initialize(dimension, lexicon)
     @dimension = dimension
     @lexicon = lexicon
+    @lexicon_trie = Containers::Trie.new
+    @lexicon.each do |word|
+      @lexicon_trie.push(word, '')
+    end
     @tried = {}
     generate_word_square
   end
@@ -13,16 +17,13 @@ class SquareSearcher
 
   def generate_word_square
     choose_random_starting_word
-    i = 1
-    while i < @dimension do
+    while @words.length < @dimension do
       if no_more_starting_words
         break
       elsif available_words.present?
         @words << available_words.sample
-        i += 1
       else
-        remove_last_word_and_add_to_tried(i)
-        i -= 1
+        remove_last_word_and_add_to_tried(@words.length)
       end
     end
   end
@@ -42,10 +43,11 @@ class SquareSearcher
   end
 
   def available_words
-    pool = @lexicon.clone
-    @words.each_with_index do |word, index|
-      pool.delete_if { |word_from_pool| word_from_pool[index] != word[@words.length] }
-    end
+    prefix = @words.map { |word| word[@words.length] }.join('')
+
+    string = prefix + '*' * (@dimension - @words.length)
+
+    pool = @lexicon_trie.wildcard(string)
 
     if @tried[@words.length + 1]
       pool = pool - @tried[@words.length + 1]
