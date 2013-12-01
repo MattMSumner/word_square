@@ -23,8 +23,11 @@ class WordSquare
 
   def find_square
     square_searcher = SquareSearcher.new(@dimension.to_i, @dictionary)
+    formatted_square(square_searcher.words)
+  end
 
-    square_searcher.words.map do |word|
+  def formatted_square(square)
+    square.map do |word|
       word.split('').map do |letter|
         letter
       end
